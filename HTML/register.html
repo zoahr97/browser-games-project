@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>הרשמה</h2>
+
+  <form id="registerForm">
+    <input type="text" id="regUsername" placeholder="שם משתמש" required>
+    <input type="password" id="regPassword" placeholder="סיסמה" required>
+    <button type="submit">צור משתמש</button>
+  </form>
+
+  <p id="message"></p>
+
+  <p>
+    כבר רשומה?
+    <a href="index.html">חזרה להתחברות</a>
+  </p>
+</div>
+
+<script src="../JS/storage.js"></script>
+<script src="../JS/auth.js"></script>
+</body>
+</html>

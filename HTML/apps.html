@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../CSS/app.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <h1>שלום <span id="username"></span> 👋</h1>
+
+  <!-- פרטי משתמש -->
+  <div class="user-info">
+    <p>⭐ ניקוד כולל: <span id="totalScore">0</span></p>
+    <p>🎮 משחקים ששוחקו: <span id="gamesPlayed">0</span></p>
+  </div>
+
+  <hr>
+
+  <h2>🎯 משחקים</h2>
+
+  <div class="games">
+
+    <div class="game">
+      <h3>🎯 Catch Game</h3>
+      <p>משחק תפיסה עם תנועה ואנימציה</p>
+      <a href="game1.html">
+        <button>התחל משחק</button>
+      </a>
+    </div>
+
+    <div class="game disabled">
+      <h3>🧠 Memory Game</h3>
+      <p>בפיתוח 🚧</p>
+      <button disabled>בקרוב</button>
+    </div>
+
+    <div class="game disabled">
+      <h3>❓ Quiz Game</h3>
+      <p>בפיתוח 🚧</p>
+      <button disabled>בקרוב</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ⚠️ סדר חשוב -->
+<script src="../JS/storage.js"></script>
+<script src="../JS/apps.js"></script>
+</body>
+</html>
