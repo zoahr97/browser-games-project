@@ -93,7 +93,7 @@ function createTarget(speed) {
   const target = document.createElement("div");
   target.classList.add("target");
 
-  const size = 30;
+  const size = 34;
   const areaWidth = gameArea.clientWidth;
 
   target.style.left = Math.random() * (areaWidth - size) + "px";
@@ -151,8 +151,7 @@ function endGame() {
   clearInterval(spawnInterval);
   startBtn.disabled = false;
 
-  // 🔑 שמירת תוצאה למשתמש
   updateCatchGameResult(score);
 
-  alert(`⏰ הזמן נגמר!\nהניקוד שלך: ${score}`);
+  alert(`Time's up!\nYour score: ${score}`);
 }

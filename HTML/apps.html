@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard</title>
+  <title>Game Hub</title>
   <link rel="stylesheet" href="../CSS/app.css">
 </head>
 <body>
 
 <div class="dashboard">
 
-  <h1>שלום <span id="username"></span> 👋</h1>
+  <h1> Welcome, <span id="username"></span></h1>
+  <p class="subtitle">Ready to play?</p>
 
-  <!-- פרטי משתמש -->
+  <!-- User stats -->
   <div class="user-info">
-    <p>⭐ ניקוד כולל: <span id="totalScore">0</span></p>
-    <p>🎮 משחקים ששוחקו: <span id="gamesPlayed">0</span></p>
+    <div class="user-card">
+      ⭐ Total Score<br>
+      <strong id="totalScore">0</strong>
+    </div>
+    <div class="user-card">
+      🎮 Games Played<br>
+      <strong id="gamesPlayed">0</strong>
+    </div>
   </div>
 
-  <hr>
-
-  <h2>🎯 משחקים</h2>
+  <h2 class="section-title">Select a Game</h2>
 
   <div class="games">
 
-    <div class="game">
-      <h3>🎯 Catch Game</h3>
-      <p>משחק תפיסה עם תנועה ואנימציה</p>
-      <a href="game1.html">
-        <button>התחל משחק</button>
-      </a>
-    </div>
-
-   <div class="game">
-    <h3>🧠 Memory Game</h3>
-    <p>משחק זיכרון בשלבים</p>
-    <a href="memory.html">
-      <button>התחל משחק</button>
+    <!-- Catch Game -->
+    <a href="game1.html" class="game game-catch">
+      <div class="game-footer">
+        <div class="game-text">
+          <h3>🎯 Catch Game</h3>
+          <p>Catch falling targets!</p>
+        </div>
+      </div>
     </a>
-  </div>
 
+    <!-- Memory Game -->
+    <a href="memory.html" class="game game-memory">
+      <div class="game-footer">
+        <div class="game-text">
+          <h3>🧠 Memory Game</h3>
+          <p>Match pairs to win!</p>
+        </div>
+      </div>
+    </a>
 
-    <div class="game disabled">
-      <h3>❓ Quiz Game</h3>
-      <p>בפיתוח 🚧</p>
-      <button disabled>בקרוב</button>
+    <!-- Quiz Game (disabled) -->
+    <div class="game game-quiz disabled">
+      <div class="game-footer">
+        <div class="game-text">
+          <h3>❓ Quiz Game</h3>
+          <p>Coming soon...</p>
+        </div>
+      </div>
     </div>
 
   </div>
-
 </div>
 
-<!-- ⚠️ סדר חשוב -->
 <script src="../JS/storage.js"></script>
 <script src="../JS/apps.js"></script>
 </body>

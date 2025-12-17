@@ -1,96 +1,170 @@
+/* ===== Page Background ===== */
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  height: 100vh;
+
+  background-image: url("images/back.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
+/* ===== Game Container ===== */
 .game-container {
-  background: #fff;
-  width: 360px;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  width: 380px;
+  padding: 22px;
+  border-radius: 26px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
   text-align: center;
 }
 
+/* ===== Header ===== */
 h1 {
   margin: 0;
+  font-size: 30px;
 }
 
 .subtitle {
   font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
+  opacity: 0.85;
+  margin-bottom: 12px;
 }
 
-/* אזור המשחק */
+/* ===== Game Area ===== */
 #game-area {
   position: relative;
   width: 100%;
-  height: 250px;
-  background: #f3f4f6;
-  border-radius: 10px;
+  height: 260px;
+
+  background: linear-gradient(180deg, #dbeafe, #eef2ff);
+  border-radius: 18px;
   overflow: hidden;
-  margin: 15px 0;
+
+  margin: 16px 0;
+  box-shadow: inset 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* השחקן */
+/* ===== Player ===== */
 .player {
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 15px;
-  background: #667eea;
-  border-radius: 10px;
+
+  width: 70px;
+  height: 16px;
+
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  border-radius: 12px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* מידע */
+/* ===== Magic Star Target ===== */
+/* ===== Magic Star Target (Dark Fantasy) ===== */
+.target {
+  width: 34px;
+  height: 34px;
+
+  background: radial-gradient(
+    circle at top,
+    #c7d2fe,   /* light indigo */
+    #6366f1,   /* indigo */
+    #4338ca    /* deep indigo */
+  );
+
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+
+  position: absolute;
+  top: 0;
+
+  box-shadow:
+    0 0 14px rgba(99,102,241,0.9),
+    0 8px 18px rgba(0,0,0,0.35);
+
+  animation: sparkle 1.4s linear infinite;
+}
+
+
+@keyframes sparkle {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ===== Info Panel ===== */
 .info-panel {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  align-items: center;
+  font-size: 13px;
   margin-bottom: 10px;
 }
 
-select {
-  border-radius: 6px;
-  padding: 2px 5px;
+.info-panel select {
+  border-radius: 8px;
+  padding: 3px 6px;
+  border: none;
 }
 
+/* ===== Button ===== */
 button {
   width: 100%;
-  padding: 10px;
-  background: #667eea;
-  color: white;
+  padding: 12px;
+  margin-top: 10px;
+
+  border-radius: 20px;
   border: none;
-  border-radius: 8px;
+
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  color: white;
+
+  font-size: 14px;
   cursor: pointer;
-  margin-top: 8px;
+  transition: 0.25s;
 }
 
 button:hover {
-  background: #556cd6;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff5252, #ff6b6b);
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Back Link ===== */
 .back-link {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: white;
   text-decoration: none;
-  color: #444;
-  font-size: 14px;
+  opacity: 0.85;
 }
 
-.target {
-  width: 30px;
-  height: 30px;
-  background: #ff6b6b;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
+.back-link:hover {
+  opacity: 1;
 }

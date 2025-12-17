@@ -1,18 +1,14 @@
-// ---------- ICON SETS ----------
 const icons = {
     easy: ["🍎", "🍌", "🍇", "🍓", "🍉", "🍍"],
     medium: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"],
     hard: ["⚽", "🏀", "🏈", "🎾", "🏐", "🎱", "🥊", "🏓", "🏸", "🥋", "⛳", "🏹"]
 };
 
-// ---------- DIFFICULTY ORDER ----------
 const difficultyOrder = ["easy", "medium", "hard"];
 
-// ---------- GAME STATE ----------
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
-
 let moves = 0;
 let pairsFound = 0;
 let totalPairs = 0;
@@ -21,14 +17,12 @@ let timer = 0;
 let timerId = null;
 let startTime = null;
 
-// ---------- SETTINGS ----------
 const difficulties = {
     easy: { pairs: 6, columns: 4 },
     medium: { pairs: 8, columns: 4 },
     hard: { pairs: 12, columns: 6 }
 };
 
-// ---------- DOM ----------
 const board = document.getElementById("board");
 const timerEl = document.getElementById("timer");
 const movesEl = document.getElementById("moves");
@@ -38,10 +32,8 @@ const startBtn = document.getElementById("startBtn");
 const messageEl = document.getElementById("message");
 const progressBar = document.getElementById("progressBar");
 
-// ---------- EVENTS ----------
 startBtn.addEventListener("click", startGame);
 
-// ---------- GAME FLOW ----------
 function startGame() {
     resetState();
     setupBoard();
@@ -112,7 +104,6 @@ function flipCard(card) {
     secondCard = card;
     moves++;
     movesEl.textContent = moves;
-
     checkMatch();
 }
 
@@ -159,19 +150,16 @@ function updateProgress() {
     progressBar.style.width = (pairsFound / totalPairs) * 100 + "%";
 }
 
-// ---------- LEVEL COMPLETION (FIXED) ----------
 function levelCompleted() {
     clearInterval(timerId);
 
     const currentIndex = difficultyOrder.indexOf(difficultySelect.value);
 
-    // LAST LEVEL (Hard)
     if (currentIndex === difficultyOrder.length - 1) {
         messageEl.textContent = "🏆 Congratulations! You finished all levels!";
         return;
     }
 
-    // NOT last level → go to next
     messageEl.textContent = "Level completed! Starting next level...";
 
     setTimeout(() => {

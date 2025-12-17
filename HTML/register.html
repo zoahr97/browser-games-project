@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Register</title>
@@ -8,19 +8,20 @@
 <body>
 
 <div class="container">
-  <h2>הרשמה</h2>
+  <h2>Create Account ✨</h2>
+  <p class="subtitle">Join the Game Hub</p>
 
   <form id="registerForm">
-    <input type="text" id="regUsername" placeholder="שם משתמש" required>
-    <input type="password" id="regPassword" placeholder="סיסמה" required>
-    <button type="submit">צור משתמש</button>
+    <input type="text" id="regUsername" placeholder="Username" required>
+    <input type="password" id="regPassword" placeholder="Password" required>
+    <button type="submit">Register</button>
   </form>
 
-  <p id="message"></p>
+  <p id="message" class="feedback"></p>
 
   <p>
-    כבר רשומה?
-    <a href="index.html">חזרה להתחברות</a>
+    Already have an account?
+    <a href="index.html">Back to login</a>
   </p>
 </div>
 

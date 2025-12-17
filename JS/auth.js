@@ -29,20 +29,20 @@ if (registerForm) {
     const password = regPassword.value.trim();
 
     if (!username || !password) {
-      showFeedback("יש למלא את כל השדות", "warning");
+      showFeedback("Please fill in all fields", "warning");
       return;
     }
 
     const users = getUsers();
     if (users.find(u => u.username === username)) {
-      showFeedback("שם המשתמש כבר קיים", "error");
+      showFeedback("Username already exists", "error");
       return;
     }
 
     users.push({ username, password });
     saveUsers(users);
 
-    showFeedback("נרשמת בהצלחה! מעבירה להתחברות…", "success");
+    showFeedback("Registration successful! Redirecting to login…", "success");
 
     setTimeout(() => {
       window.location.href = "index.html";
@@ -71,13 +71,13 @@ if (loginForm) {
 
     const lockUntil = Number(localStorage.getItem(lockKey));
 
-    /* 🔓 if lock expired – reset attempts */
+    /* 🔓 If lock expired – reset attempts */
     if (lockUntil && now >= lockUntil) {
       localStorage.removeItem(lockKey);
       localStorage.removeItem(attemptsKey);
     }
 
-    /* 🔒 still locked */
+    /* 🔒 Still locked */
     if (lockUntil && now < lockUntil) {
       startCountdown(Math.ceil((lockUntil - now) / 1000));
       return;
@@ -88,7 +88,7 @@ if (loginForm) {
       u => u.username === username && u.password === password
     );
 
-    /* ❌ wrong login */
+    /* ❌ Wrong login */
     if (!user) {
       let attempts = Number(localStorage.getItem(attemptsKey)) || 0;
       attempts++;
@@ -97,20 +97,20 @@ if (loginForm) {
       if (attempts >= MAX_ATTEMPTS) {
         const lockTime = now + LOCK_TIME * 1000;
         localStorage.setItem(lockKey, lockTime);
-        showFeedback("נחסמת ל־60 שניות 🔒", "error");
+        showFeedback("Too many attempts. Locked for 60 seconds 🔒", "error");
         startCountdown(LOCK_TIME);
       } else {
-        showFeedback(`שגיאה (${attempts}/${MAX_ATTEMPTS})`, "error");
+        showFeedback(`Invalid credentials (${attempts}/${MAX_ATTEMPTS})`, "error");
       }
       return;
     }
 
-    /* ✅ success */
+    /* ✅ Success */
     localStorage.removeItem(attemptsKey);
     localStorage.removeItem(lockKey);
 
     setCurrentUser(username);
-    showFeedback("התחברת בהצלחה! 🎉", "success");
+    showFeedback("Login successful! 🎉", "success");
 
     setTimeout(() => {
       window.location.href = "apps.html";
@@ -129,7 +129,7 @@ function startCountdown(seconds) {
   msg.style.display = "block";
 
   const interval = setInterval(() => {
-    msg.textContent = `נסי שוב בעוד ${remaining} שניות ⏳`;
+    msg.textContent = `Try again in ${remaining} seconds ⏳`;
     remaining--;
 
     if (remaining < 0) {

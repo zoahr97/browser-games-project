@@ -7,35 +7,39 @@
 </head>
 <body>
 
-<h1>🧠 Memory Game</h1>
+<div class="game-wrapper">
 
-<div id="controls">
-    <label>
-        Difficulty:
+    <header class="game-header">
+        <h1>🧠 Memory Game</h1>
+        <p>Match all pairs to win </p>
+    </header>
+
+    <div class="stats">
+        <div class="stat-card">⏱ <span id="timer">0</span>s</div>
+        <div class="stat-card">🔄 <span id="moves">0</span></div>
+        <div class="stat-card">✅ <span id="pairs">0</span></div>
+    </div>
+
+    <div class="controls">
         <select id="difficulty">
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
         </select>
-    </label>
-    <button id="startBtn">Start / Restart</button>
+        <button id="startBtn">Start / Restart</button>
+    </div>
+
+    <div id="progress">
+        <div id="progressBar"></div>
+    </div>
+
+    <div id="board"></div>
+
+    <div id="message"></div>
+
+    <a href="apps.html" class="back-link">⬅ Back to Dashboard</a>
+
 </div>
-
-<div id="status">
-    <span>⏱ Time: <span id="timer">0</span>s</span>
-    <span>🔄 Moves: <span id="moves">0</span></span>
-    <span>✅ Pairs: <span id="pairs">0</span></span>
-</div>
-
-<div id="progress">
-    <div id="progressBar"></div>
-</div>
-
-<div id="board"></div>
-
-<div id="message"></div>
-
-<a href="apps.html">⬅ Back to Dashboard</a>
 
 <script src="../JS/storage.js"></script>
 <script src="../JS/memory.js"></script>

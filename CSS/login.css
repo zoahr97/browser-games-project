@@ -1,93 +1,102 @@
+/* ===== Background ===== */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
   height: 100vh;
+  font-family: Arial, sans-serif;
+
+  background-image: url("images/back.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
+/* ===== Glass Card ===== */
 .container {
-  background: white;
+  width: 340px;
   padding: 30px;
-  border-radius: 10px;
-  width: 320px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
   text-align: center;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* ===== Title ===== */
+.container h2 {
+  margin-bottom: 5px;
+  font-size: 28px;
 }
 
+.container p.subtitle {
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+/* ===== Inputs ===== */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 14px;
+  border: none;
+  font-size: 14px;
+}
+
+/* ===== Button ===== */
 button {
   width: 100%;
-  padding: 10px;
-  background: #667eea;
+  padding: 12px;
+  margin-top: 10px;
+
+  background: #ff6b6b;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 14px;
+  font-size: 15px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #556cd6;
+  transform: scale(1.05);
+  background: #ff5252;
 }
 
-/* ===== Feedback Message ===== */
+/* ===== Links ===== */
+a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Feedback ===== */
 .feedback {
   margin-top: 15px;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 14px;
   display: none;
-  animation: fadeIn 0.4s ease-in-out;
 }
 
 .feedback.success {
-  background-color: #e6fffa;
-  color: #065f46;
-  border: 1px solid #34d399;
+  background: rgba(76, 175, 80, 0.85);
 }
 
 .feedback.error {
-  background-color: #ffe4e6;
-  color: #7f1d1d;
-  border: 1px solid #f87171;
+  background: rgba(244, 67, 54, 0.85);
 }
 
 .feedback.warning {
-  background-color: #fff7ed;
-  color: #7c2d12;
-  border: 1px solid #fb923c;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.game {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.game button {
-  margin-top: 5px;
-}
-
-hr {
-  margin: 20px 0;
+  background: rgba(255, 152, 0, 0.85);
 }
