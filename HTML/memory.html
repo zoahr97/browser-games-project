@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="../CSS/memory.css">
+</head>
+<body>
+
+<h1>🧠 Memory Game</h1>
+
+<div id="controls">
+    <label>
+        Difficulty:
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </label>
+    <button id="startBtn">Start / Restart</button>
+</div>
+
+<div id="status">
+    <span>⏱ Time: <span id="timer">0</span>s</span>
+    <span>🔄 Moves: <span id="moves">0</span></span>
+    <span>✅ Pairs: <span id="pairs">0</span></span>
+</div>
+
+<div id="progress">
+    <div id="progressBar"></div>
+</div>
+
+<div id="board"></div>
+
+<div id="message"></div>
+
+<a href="apps.html">⬅ Back to Dashboard</a>
+
+<script src="../JS/storage.js"></script>
+<script src="../JS/memory.js"></script>
+</body>
+</html>

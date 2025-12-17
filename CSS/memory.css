@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+#controls, #status {
+    margin: 10px;
+}
+
+#board {
+    display: grid;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 80px;
+    height: 80px;
+    background: #444;
+    color: white;
+    font-size: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.card.flipped {
+    background: #2196f3;
+}
+
+.card.matched {
+    background: #4caf50;
+    cursor: default;
+}
+
+#message {
+    font-size: 22px;
+    margin-top: 15px;
+    color: green;
+}
+
+#progress {
+    width: 60%;
+    height: 16px;
+    background: #ddd;
+    margin: 12px auto;
+    border-radius: 10px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #4caf50;
+    border-radius: 10px;
+}
