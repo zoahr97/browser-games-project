@@ -1,67 +1,107 @@
 <!DOCTYPE html>
+<!--
+  File: apps.html
+  Purpose: Main applications hub (games selection screen).
+  Description:
+  - Displays available games and locked placeholders.
+  - Shows current player information (username, score, games played).
+  - Serves as the central navigation point after successful login.
+-->
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Game Hub</title>
-  <link rel="stylesheet" href="../CSS/app.css">
+  <title>Pixel Portal</title>
+
+  <!-- Main styles for the applications hub -->
+  <link rel="stylesheet" href="/CSS/app.css">
 </head>
+
 <body>
 
-<div class="dashboard">
+  <!-- Top decorative HUD line -->
+  <div class="hud-line top"></div>
 
-  <h1> Welcome, <span id="username"></span></h1>
-  <p class="subtitle">Ready to play?</p>
+  <!-- Page title -->
+  <h1 class="title">SELECT YOUR GAME</h1>
 
-  <!-- User stats -->
-  <div class="user-info">
-    <div class="user-card">
-      ⭐ Total Score<br>
-      <strong id="totalScore">0</strong>
+  <!-- Main content area -->
+  <div class="hud-content">
+
+    <!-- ===== GAMES SECTION ===== -->
+    <!-- Contains available and locked games -->
+    <div class="games">
+
+      <!-- MEMORY GAME CARD -->
+      <!-- Navigates to the Memory Matrix game -->
+      <div class="game-card memory" onclick="goTo('memory.html')">
+        <div class="frame"></div>
+        <img src="/CSS/images/memory.png" class="game-image" alt="Memory Game">
+      </div>
+
+      <!-- FALLING OBJECTS GAME CARD -->
+      <!-- Navigates to the Falling Objects game -->
+      <div class="game-card falling" onclick="goTo('catch.html')">
+        <div class="frame"></div>
+        <img src="/CSS/images/catch.png" class="game-image" alt="Catch Game">
+      </div>
+
+      <!-- LOCKED GAME CARD -->
+      <!-- Placeholder for future game -->
+      <div class="game-card locked">
+        <div class="frame"></div>
+        <img src="/CSS/images/locked.png" class="game-image locked-img" alt="Locked">
+        <span class="locked-text">LOCKED</span>
+      </div>
+
     </div>
-    <div class="user-card">
-      🎮 Games Played<br>
-      <strong id="gamesPlayed">0</strong>
+
+    <!-- ===== PLAYER INFO PANEL ===== -->
+    <!-- Displays current user statistics -->
+    <div class="player-panel hud-panel">
+      <div class="hud-frame"></div>
+
+      <h3 class="hud-title">PLAYER INFO</h3>
+
+      <!-- Username -->
+      <div class="hud-row">
+        <span class="label">👤 USER</span>
+        <span class="value" id="username">ester</span>
+      </div>
+
+      <!-- Total score -->
+      <div class="hud-row">
+        <span class="label">⭐ SCORE</span>
+        <span class="value" id="totalScore">95</span>
+      </div>
+
+      <!-- Games played -->
+      <div class="hud-row">
+        <span class="label">🎮 GAMES</span>
+        <span class="value" id="gamesPlayed">5</span>
+      </div>
+
+      <!-- Trophy icon -->
+      <div class="trophy-wrap">
+        🏆
+      </div>
+
+      <!-- Logout button -->
+      <div class="logout-wrap">
+        <button class="logout-btn" onclick="logout()">LOGOUT</button>
+      </div>
+
     </div>
+
   </div>
 
-  <h2 class="section-title">Select a Game</h2>
+  <!-- Bottom decorative HUD line -->
+  <div class="hud-line bottom"></div>
 
-  <div class="games">
+  <!-- Local storage utilities -->
+  <script src="/JS/storage.js"></script>
 
-    <!-- Catch Game -->
-    <a href="game1.html" class="game game-catch">
-      <div class="game-footer">
-        <div class="game-text">
-          <h3>🎯 Catch Game</h3>
-          <p>Catch falling targets!</p>
-        </div>
-      </div>
-    </a>
-
-    <!-- Memory Game -->
-    <a href="memory.html" class="game game-memory">
-      <div class="game-footer">
-        <div class="game-text">
-          <h3>🧠 Memory Game</h3>
-          <p>Match pairs to win!</p>
-        </div>
-      </div>
-    </a>
-
-    <!-- Quiz Game (disabled) -->
-    <div class="game game-quiz disabled">
-      <div class="game-footer">
-        <div class="game-text">
-          <h3>❓ Quiz Game</h3>
-          <p>Coming soon...</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script src="../JS/storage.js"></script>
-<script src="../JS/apps.js"></script>
+  <!-- Applications hub logic -->
+  <script src="/JS/apps.js"></script>
 </body>
 </html>

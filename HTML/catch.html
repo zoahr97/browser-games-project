@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <!--
-  File: memory.html
-  Purpose: "Memory Matrix" game screen.
+  File: catch.html
+  Purpose: "Falling Objects" game screen.
   Description:
-  - Provides the HTML structure for the Memory Matrix game.
-  - Displays HUD data, controls, progress bar and the game board.
-  - Game logic, timing and matching behavior are implemented in memory.js.
+  - Provides the HTML structure for the Falling Objects game.
+  - Displays HUD information, controls, instructions and the playfield.
+  - Game logic and state handling are implemented in catch.js.
 -->
 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Page title -->
-  <title>Memory Matrix</title>
+  <!-- Responsive layout support -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <!-- Styles specific to the Memory Matrix game -->
-  <link rel="stylesheet" href="\CSS\memory.css" />
+  <title>Falling Objects</title>
+
+  <!-- Styles specific to the Falling Objects game -->
+  <link rel="stylesheet" href="\CSS\catch.css" />
 </head>
 
 <body>
@@ -27,13 +29,11 @@
   <!-- Page header with back navigation and title -->
   <header class="page-header">
     <a class="back-link" href="apps.html">← BACK</a>
-    <h1 class="title">MEMORY MATRIX</h1>
+    <h1 class="title">FALLING OBJECTS</h1>
   </header>
 
-  <!-- ===== GAME ONLY LAYOUT ===== -->
-  <!-- Single-column layout without side panel -->
+  <!-- Main game layout -->
   <main class="layout single">
-
     <section class="game-area">
 
       <!-- ===== HUD ===== -->
@@ -46,30 +46,28 @@
           <span class="value" id="levelLabel">EASY</span>
         </div>
 
-        <!-- Game timer -->
+        <!-- Remaining time -->
         <div class="hud-box cyan">
           <span class="label">TIME</span>
-          <span class="value"><span id="timer">0</span>s</span>
+          <span class="value"><span id="time">60</span>s</span>
         </div>
 
-        <!-- Number of moves -->
+        <!-- Current score -->
         <div class="hud-box green">
-          <span class="label">MOVES</span>
-          <span class="value" id="moves">0</span>
+          <span class="label">SCORE</span>
+          <span class="value" id="score">0</span>
         </div>
 
-        <!-- Matched pairs progress -->
+        <!-- Remaining lives -->
         <div class="hud-box yellow">
-          <span class="label">PAIRS</span>
-          <span class="value">
-            <span id="pairs">0</span>/<span id="totalPairs">0</span>
-          </span>
+          <span class="label">LIVES</span>
+          <span class="value" id="lives">3</span>
         </div>
 
       </div>
 
       <!-- ===== CONTROLS ===== -->
-      <!-- Difficulty selection and game start -->
+      <!-- Difficulty selection and start button -->
       <div class="controls">
 
         <!-- Difficulty selector -->
@@ -86,25 +84,21 @@
         <button id="startBtn" class="start-btn">START GAME</button>
       </div>
 
-      <!-- ===== PROGRESS ===== -->
-      <!-- Visual progress bar for matched pairs -->
-      <div class="progress-wrap">
-        <div class="progress-title">PROGRESS</div>
-        <div class="progress-rail">
-          <div id="progressBar" class="progress-bar"></div>
-        </div>
+      <!-- ===== MESSAGE ===== -->
+      <!-- Player instructions and game hints -->
+      <div class="message" id="message">
+        Use ← → keys to move. Catch the glowing drops!
       </div>
 
-      <!-- ===== MESSAGE ===== -->
-      <!-- Game feedback and instructions -->
-      <div id="message" class="message"></div>
+      <!-- ===== GAME SCREEN ===== -->
+      <!-- Main playfield where the game runs -->
+      <div id="playfield" class="playfield" aria-label="game area">
 
-      <!-- ===== BOARD ===== -->
-      <!-- Grid container for memory cards -->
-      <div id="board" class="board"></div>
+        <!-- Player element controlled by keyboard -->
+        <div id="player" class="player" aria-label="player"></div>
+      </div>
 
     </section>
-
   </main>
 
   <!-- Bottom decorative HUD line -->
@@ -113,8 +107,7 @@
   <!-- Shared local storage utilities -->
   <script src="/JS/storage.js"></script>
 
-  <!-- Memory Matrix game logic -->
-  <script src="\JS\memory.js"></script>
-
+  <!-- Falling Objects game logic -->
+  <script src="/JS/catch.js"></script>
 </body>
 </html>
